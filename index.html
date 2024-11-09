@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
+    <title>Giancarlo A. Haidar's Portfolio</title>
+    <!-- Link to Google Fonts for Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Basic Reset */
@@ -20,12 +21,14 @@
             scroll-behavior: smooth;
         }
         
+        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
 
+        /* Header */
         .header {
             display: flex;
             justify-content: space-between;
@@ -56,6 +59,7 @@
             color: #777;
         }
 
+        /* Centered Navigation Links */
         .header-center {
             display: flex;
             gap: 20px;
@@ -66,13 +70,25 @@
             color: #333;
             font-weight: bold;
             font-size: 1.1rem;
-            padding-bottom: 2px;
+            position: relative;
         }
 
+        /* Active Link Style with Above Underline */
         .header-center a.active {
-            border-bottom: 2px solid #333;
+            color: #000;
         }
 
+        .header-center a.active::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #333;
+        }
+
+        /* Header Right Links */
         .header-right a {
             margin-left: 20px;
             color: #0073b1;
@@ -85,6 +101,7 @@
             color: #005582;
         }
 
+        /* Table of Contents */
         .toc {
             position: fixed;
             top: 100px;
@@ -104,114 +121,133 @@
             transition: color 0.3s;
         }
 
+        /* Active Year Style */
         .toc a.active {
             font-size: 1.2rem;
-            font-weight: bold;
+            font-weight: 700;
             color: #000;
-            border-left: 3px solid #333;
         }
 
+        /* Content Sections */
         .content-section {
             padding: 60px 0;
         }
 
+        /* Image Grid */
         .image-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
         }
 
-        /* Constrain images to aspect ratios */
-        .image-grid .image-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .image-item {
             text-align: left;
         }
 
-        .image-grid img {
+        .image-shape {
+            position: relative;
             width: 100%;
-            height: auto;
-            object-fit: cover;
-            display: block;
+            overflow: hidden;
             border-radius: 8px;
+            background-color: #f6f6f6; /* Light gray background */
         }
 
-        /* Image shape boundaries */
-        .square img {
-            aspect-ratio: 1 / 1; /* Square */
+        /* Image container sizes */
+        .square {
+            padding-top: 100%;
         }
 
-        .rectangle img {
-            aspect-ratio: 16 / 9; /* Landscape rectangle */
+        .rectangle {
+            padding-top: 60%;
         }
 
-        .portrait img {
-            aspect-ratio: 3 / 4; /* Portrait */
+        .portrait {
+            padding-top: 150%;
         }
 
+        /* Fit images within shapes */
+        .image-shape img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            max-width: 100%;
+            max-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: contain;
+        }
+
+        /* Title and Type Styling */
         .image-title {
-            font-size: 1rem;
             font-weight: bold;
-            margin-top: 8px;
-            padding-left: 8px;
             color: #333;
+            padding-top: 5px;
         }
 
-        .image-description {
+        .image-type {
             font-size: 0.9rem;
-            padding-left: 8px;
-            color: #666;
-            margin-bottom: 8px;
+            color: #777;
         }
     </style>
 </head>
 <body>
+    <!-- Header with Centered Navigation -->
     <header class="header">
+        <!-- Left Side (Name and Job Title) -->
         <div class="header-left">
-            <h1>Your Name</h1>
-            <h2>Job Title</h2>
+            <h1>Giancarlo A. Haidar</h1>
+            <h2>Global Business & Digital Arts Student</h2>
         </div>
+
+        <!-- Centered Navigation Links -->
         <div class="header-center">
             <a href="#work" class="active">Show</a>
             <a href="#about">Tell</a>
         </div>
+
+        <!-- Right Side (Resume and LinkedIn) -->
         <div class="header-right">
-            <a href="#linkedin" target="_blank">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/giancarlo-haidar/" target="_blank">LinkedIn</a>
             <a href="#resume">Resume</a>
         </div>
     </header>
 
+    <!-- Table of Contents -->
     <div class="toc">
-        <a href="#2024" id="toc-2024">2024</a>
+        <a href="#2024" id="toc-2024" class="active">2024</a>
         <a href="#2023" id="toc-2023">2023</a>
     </div>
 
+    <!-- Content Sections by Year -->
     <div class="container">
         <section id="2023" class="content-section">
             <div class="image-grid">
-                <div class="image-item square">
-                    <img src="/mnt/data/Artboard 1.png" alt="Work 1">
-                    <div class="image-title">Artboard 1</div>
-                    <div class="image-description">Graphic Design</div>
+                <div class="image-item">
+                    <div class="image-shape square">
+                        <img src="/mnt/data/Artboard 1.png" alt="Logo Image">
+                    </div>
+                    <div class="image-title">Logo</div>
+                    <div class="image-type">Graphic Design</div>
                 </div>
-                <div class="image-item rectangle">
-                    <img src="/mnt/data/Page 1.png" alt="Work 2">
-                    <div class="image-title">Page 1</div>
-                    <div class="image-description">Magazine Cover</div>
+                <div class="image-item">
+                    <div class="image-shape portrait">
+                        <img src="/mnt/data/Page 1.png" alt="Magazine Cover">
+                    </div>
+                    <div class="image-title">Magazine</div>
+                    <div class="image-type">Publication Design</div>
                 </div>
-                <div class="image-item portrait">
-                    <img src="/mnt/data/Haidar_Giancarlo_A2-Illustrator.png" alt="Work 3">
-                    <div class="image-title">Illustration A2</div>
-                    <div class="image-description">Illustration Design</div>
+                <div class="image-item">
+                    <div class="image-shape rectangle">
+                        <img src="/mnt/data/Haidar_Giancarlo_A2-Illustrator.png" alt="Illustration">
+                    </div>
+                    <div class="image-title">Diptych Poster</div>
+                    <div class="image-type">Digital Art</div>
                 </div>
             </div>
         </section>
-        
-        <!-- Add similar sections for 2024 if needed -->
     </div>
 
     <script>
+        // Script for updating active year link in Table of Contents
         document.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('.content-section');
             const tocLinks = document.querySelectorAll('.toc a');
