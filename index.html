@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0);
+            padding: 15px;
+            z-index: 1000;
+        }
+        
+        .header-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header h1, .header h2 {
+            font-weight: 400;
+        }
+        
+        .header h1 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .header h2 {
+            font-size: 1rem;
+            color: #777;
+        }
+
+        .header-center {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-center a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding-bottom: 2px;
+        }
+
+        .header-center a.active {
+            border-bottom: 2px solid #333;
+        }
+
+        .header-right a {
+            margin-left: 20px;
+            color: #0073b1;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .header-right a:hover {
+            color: #005582;
+        }
+
+        .toc {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toc a {
+            font-size: 1rem;
+            color: #333;
+            text-decoration: none;
+            padding: 5px 10px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .toc a.active {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #000;
+            border-left: 3px solid #333;
+        }
+
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        /* Constrain images to aspect ratios */
+        .image-grid .image-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* Image shape boundaries */
+        .square img {
+            aspect-ratio: 1 / 1; /* Square */
+        }
+
+        .rectangle img {
+            aspect-ratio: 16 / 9; /* Landscape rectangle */
+        }
+
+        .portrait img {
+            aspect-ratio: 3 / 4; /* Portrait */
+        }
+
+        .image-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 8px;
+            padding-left: 8px;
+            color: #333;
+        }
+
+        .image-description {
+            font-size: 0.9rem;
+            padding-left: 8px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <h1>Your Name</h1>
+            <h2>Job Title</h2>
+        </div>
+        <div class="header-center">
+            <a href="#work" class="active">Show</a>
+            <a href="#about">Tell</a>
+        </div>
+        <div class="header-right">
+            <a href="#linkedin" target="_blank">LinkedIn</a>
+            <a href="#resume">Resume</a>
+        </div>
+    </header>
+
+    <div class="toc">
+        <a href="#2024" id="toc-2024">2024</a>
+        <a href="#2023" id="toc-2023">2023</a>
+    </div>
+
+    <div class="container">
+        <section id="2023" class="content-section">
+            <div class="image-grid">
+                <div class="image-item square">
+                    <img src="/mnt/data/Artboard 1.png" alt="Work 1">
+                    <div class="image-title">Artboard 1</div>
+                    <div class="image-description">Graphic Design</div>
+                </div>
+                <div class="image-item rectangle">
+                    <img src="/mnt/data/Page 1.png" alt="Work 2">
+                    <div class="image-title">Page 1</div>
+                    <div class="image-description">Magazine Cover</div>
+                </div>
+                <div class="image-item portrait">
+                    <img src="/mnt/data/Haidar_Giancarlo_A2-Illustrator.png" alt="Work 3">
+                    <div class="image-title">Illustration A2</div>
+                    <div class="image-description">Illustration Design</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Add similar sections for 2024 if needed -->
+    </div>
+
+    <script>
+        document.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.content-section');
+            const tocLinks = document.querySelectorAll('.toc a');
+            
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.5) {
+                    tocLinks.forEach(link => link.classList.remove('active'));
+                    tocLinks[index].classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
