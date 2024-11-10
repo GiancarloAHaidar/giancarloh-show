@@ -21,11 +21,10 @@
             scroll-behavior: smooth;
         }
         
-        /* Container */
+        /* Full-width Container */
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            width: 100%;
+            padding: 0 40px;
         }
 
         /* Header */
@@ -35,9 +34,10 @@
             align-items: center;
             position: sticky;
             top: 0;
-            background-color: rgba(255, 255, 255, 0);
-            padding: 15px;
+            background-color: #fff;
+            padding: 15px 20px;
             z-index: 1000;
+            border-bottom: 2px solid #f6f6f6; /* subtle bottom border */
         }
         
         .header-left {
@@ -61,6 +61,9 @@
 
         /* Centered Navigation Links */
         .header-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             gap: 20px;
         }
@@ -89,16 +92,31 @@
         }
 
         /* Header Right Links */
+        .header-right {
+            margin-left: auto;
+            display: flex;
+            gap: 20px;
+        }
+
         .header-right a {
-            margin-left: 20px;
             color: #0073b1;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
+            display: flex;
+            align-items: center;
         }
 
         .header-right a:hover {
             color: #005582;
+        }
+
+        /* Icon Styling */
+        .external-link-icon {
+            width: 12px;
+            height: 12px;
+            margin-left: 5px;
+            fill: currentColor;
         }
 
         /* Table of Contents */
@@ -110,6 +128,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            z-index: 1100;
         }
 
         .toc a {
@@ -128,19 +147,19 @@
             color: #000;
         }
 
-        /* Content Sections */
-        .content-section {
-            padding: 60px 0;
-        }
-
-        /* Image Grid */
+        /* Unified Image Grid for All Projects with Masonry Effect */
         .image-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 1fr;
             gap: 15px;
+            padding-left: 170px;
+            padding-right: 170px;
         }
 
         .image-item {
+            display: flex;
+            flex-direction: column;
             text-align: left;
         }
 
@@ -149,7 +168,7 @@
             width: 100%;
             overflow: hidden;
             border-radius: 8px;
-            background-color: #f6f6f6; /* Light gray background */
+            background-color: #f6f6f6;
         }
 
         /* Image container sizes */
@@ -173,7 +192,7 @@
             max-width: 100%;
             max-height: 100%;
             transform: translate(-50%, -50%);
-            object-fit: contain;
+            object-fit: cover;
         }
 
         /* Title and Type Styling */
@@ -195,7 +214,7 @@
         <!-- Left Side (Name and Job Title) -->
         <div class="header-left">
             <h1>Giancarlo A. Haidar</h1>
-            <h2>Global Business & Digital Arts Student</h2>
+            <h2>GBDA Student</h2>
         </div>
 
         <!-- Centered Navigation Links -->
@@ -206,8 +225,12 @@
 
         <!-- Right Side (Resume and LinkedIn) -->
         <div class="header-right">
-            <a href="https://www.linkedin.com/in/giancarlo-haidar/" target="_blank">LinkedIn</a>
-            <a href="#resume">Resume</a>
+            <a href="https://www.linkedin.com/in/giancarlo-haidar/" target="_blank">LinkedIn
+                <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59L10 12.59l1.41 1.41L19 6.41V10h2V3h-7z"/><path d="M5 5h9v-2H3c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2v-9h-2v9H5V5z"/></svg>
+            </a>
+            <a href="#resume" target="_blank">Resume
+                <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59L10 12.59l1.41 1.41L19 6.41V10h2V3h-7z"/><path d="M5 5h9v-2H3c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2v-9h-2v9H5V5z"/></svg>
+            </a>
         </div>
     </header>
 
@@ -217,49 +240,31 @@
         <a href="#2023" id="toc-2023">2023</a>
     </div>
 
-    <!-- Content Sections by Year -->
+    <!-- Unified Grid for All Projects with Masonry Effect -->
     <div class="container">
-        <section id="2023" class="content-section">
-            <div class="image-grid">
-                <div class="image-item">
-                    <div class="image-shape square">
-                        <img src="/mnt/data/Artboard 1.png" alt="Logo Image">
-                    </div>
-                    <div class="image-title">Logo</div>
-                    <div class="image-type">Graphic Design</div>
+        <div class="image-grid">
+            <div class="image-item">
+                <div class="image-shape square">
+                    <img src="Artboard 1.png" alt="Logo Design">
                 </div>
-                <div class="image-item">
-                    <div class="image-shape portrait">
-                        <img src="/mnt/data/Page 1.png" alt="Magazine Cover">
-                    </div>
-                    <div class="image-title">Magazine</div>
-                    <div class="image-type">Publication Design</div>
-                </div>
-                <div class="image-item">
-                    <div class="image-shape rectangle">
-                        <img src="/mnt/data/Haidar_Giancarlo_A2-Illustrator.png" alt="Illustration">
-                    </div>
-                    <div class="image-title">Diptych Poster</div>
-                    <div class="image-type">Digital Art</div>
-                </div>
+                <div class="image-title">Logo</div>
+                <div class="image-type">Design</div>
             </div>
-        </section>
+            <div class="image-item">
+                <div class="image-shape portrait">
+                    <img src="Page 1.png" alt="Magazine Cover">
+                </div>
+                <div class="image-title">Magazine</div>
+                <div class="image-type">Cover</div>
+            </div>
+            <div class="image-item">
+                <div class="image-shape rectangle">
+                    <img src="Haidar_Giancarlo_A2-Illustrator.png" alt="Diptych Poster">
+                </div>
+                <div class="image-title">Diptych Poster</div>
+                <div class="image-type">Illustration</div>
+            </div>
+        </div>
     </div>
-
-    <script>
-        // Script for updating active year link in Table of Contents
-        document.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('.content-section');
-            const tocLinks = document.querySelectorAll('.toc a');
-            
-            sections.forEach((section, index) => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.5) {
-                    tocLinks.forEach(link => link.classList.remove('active'));
-                    tocLinks[index].classList.add('active');
-                }
-            });
-        });
-    </script>
 </body>
 </html>
