@@ -46,10 +46,10 @@
             content: "";
             position: absolute;
             bottom: 0;
-            left: 60px;
-            right: 60px;
+            left: 60px; /* Start of padding */
+            right: 60px; /* End of padding */
             height: 2px;
-            background-color: #f6f6f6;
+            background-color: #f6f6f6; /* Light gray color */
         }
 
         .header-left {
@@ -88,8 +88,8 @@
             position: relative;
         }
 
-        /* Overline on "Tell" instead of "Show" */
-        .header-center a:nth-child(2).active::before {
+        /* Overline on "Show" instead of "Tell" */
+        .header-center a:first-child.active::before {
             content: '';
             position: absolute;
             top: -4px;
@@ -123,6 +123,14 @@
             color: #005582;
         }
 
+        /* Icon Styling */
+        .external-link-icon {
+            width: 12px;
+            height: 12px;
+            margin-left: 5px;
+            fill: currentColor;
+        }
+
         /* Masonry-like Grid for All Projects */
         .image-grid {
             display: grid;
@@ -136,13 +144,13 @@
             flex-direction: column;
             text-align: left;
             overflow: hidden;
-            text-decoration: none;
-            color: inherit;
+            text-decoration: none; /* No underline for links */
+            color: inherit; /* Inherit color */
         }
 
         .image-item a {
-            text-decoration: none;
-            color: inherit;
+            text-decoration: none; /* Remove underline for links within image-item */
+            color: inherit; /* Inherit color */
         }
 
         .image-shape {
@@ -150,12 +158,12 @@
             height: auto;
             overflow: hidden;
             border-radius: 15px;
-            transition: filter 0.3s ease;
+            transition: filter 0.3s ease; /* Smooth transition for hover effect */
         }
 
         /* Darken on Hover */
         .image-shape:hover {
-            filter: brightness(0.85);
+            filter: brightness(0.85); /* Slightly darkens the image */
         }
 
         .image-shape img {
@@ -253,8 +261,8 @@
             <h2>GBDA Student</h2>
         </div>
         <div class="header-center">
-            <a href="#work" target="_self" class="active">Show</a>
-            <a href="#about" target="_self">Tell</a>
+            <a href="#SHOW" target="_self" class="active">Show</a>
+            <a href="#TELL" target="_self">Tell</a>
         </div>
         <div class="header-right">
             <a href="https://www.linkedin.com/in/giancarlo-haidar/" target="_blank">LinkedIn ↗</a>
@@ -266,21 +274,21 @@
     <div class="container">
         <div class="image-grid">
             <!-- Project Images with Links -->
-            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank" class="image-item">
+            <a href="#LOWFIDELITYPROTOTYPE" target="_self" class="image-item">
                 <div class="image-shape">
                     <img src="Group 2 GBDA 210 F24_000.jpg" alt="Low Fidelity Prototype">
                 </div>
                 <div class="image-title">Low Fidelity Prototype</div>
                 <div class="image-type">UX Design</div>
             </a>
-            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank" class="image-item">
+            <a href="#CAMPUSPIZZAREDESIGN" target="_self" class="image-item">
                 <div class="image-shape">
                     <img src="High-Fidelity Main_Landing Page 1 (Home) (1).jpg" alt="Campus Pizza Redesign">
                 </div>
                 <div class="image-title">Campus Pizza Redesign</div>
                 <div class="image-type">Web Design</div>
             </a>
-            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank" class="image-item">
+            <a href="#SUNLIFEDESIGNJAM" target="_self" class="image-item">
                 <div class="image-shape">
                     <img src="Group 9 - Presentation [Design Jam] (1).jpg" alt="Sun Life Design Jam">
                 </div>
@@ -288,21 +296,21 @@
                 <div class="image-type">UI Design</div>
             </a>
             <!-- Additional Projects -->
-            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank" class="image-item">
+            <a href="#LOGODESIGN" target="_self" class="image-item">
                 <div class="image-shape">
                     <img src="Artboard 1.png" alt="Logo Design">
                 </div>
                 <div class="image-title">Logo Design</div>
                 <div class="image-type">Illustration</div>
             </a>
-            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank" class="image-item">
+            <a href="#PERSONALMAGAZINE" target="_self" class="image-item">
                 <div class="image-shape">
                     <img src="Page 1.png" alt="Magazine Cover">
                 </div>
-                <div class="image-title">Magazine Cover</div>
+                <div class="image-title">Personal Magazine</div>
                 <div class="image-type">Graphic Design</div>
             </a>
-            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank" class="image-item">
+            <a href="#DIPTYCHPOSTER" target="_self" class="image-item">
                 <div class="image-shape">
                     <img src="Haidar_Giancarlo_A2-Illustrator.png" alt="Diptych Poster">
                 </div>
@@ -316,8 +324,8 @@
     <footer class="footer">
         <div class="footer-section">
             <strong>Main</strong>
-            <a href="#work" target="_self">Show</a>
-            <a href="#about" target="_self">Tell</a>
+            <a href="#work">Show</a>
+            <a href="#about">Tell</a>
         </div>
         <div class="footer-section">
             <strong>Contact</strong>
@@ -329,7 +337,7 @@
             <a href="mailto:giancarlo.a.haidar@gmail.com" class="email">giancarlo.a.haidar@gmail.com</a>
         </div>
         <div class="last-updated">
-            Last updated November 2024
+            LAST UPDATED 2024-11-10
         </div>
     </footer>
 </body>
