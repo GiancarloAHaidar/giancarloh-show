@@ -1,344 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giancarlo A. Haidar's Portfolio</title>
-    <!-- Link to Google Fonts for Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link to Google Fonts for Roboto and Archivo -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Archivo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-        
-        body {
-            line-height: 1.6;
-            color: #333;
-            scroll-behavior: smooth;
-        }
-        
-        /* Full-width Container */
-        .container {
-            width: 100%;
-            padding: 0 60px;
-            max-width: 1600px;
-            margin: auto;
-        }
+      /* Basic Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            background-color: #fff;
-            padding: 15px 60px;
-            z-index: 1000;
-        }
-        
-        /* Header Bottom Border Line within Padding */
-        .header::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 60px; /* Start of padding */
-            right: 60px; /* End of padding */
-            height: 2px;
-            background-color: #f6f6f6; /* Light gray color */
-        }
+      body {
+        line-height: 1.6;
+        color: #333;
+        scroll-behavior: smooth;
+        font-family: 'Archivo', sans-serif;
+        /* Set Archivo as default font for body */
+      }
 
-        .header-left {
-            text-align: left;
-        }
+      /* Full-width Container */
+      .container {
+        width: 100%;
+        padding: 0 60px;
+        /* Consistent padding on sides */
+        max-width: 1600px;
+        margin: auto;
+      }
 
-        .header h1, .header h2 {
-            font-weight: 400;
-            margin: 0;
-        }
-        
-        .header h1 {
-            font-size: 1.5rem;
-            color: #333;
-        }
+      /* Header */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        background-color: #ffffff;
+        padding: 15px 60px;
+        z-index: 1000;
+        font-family: 'Roboto', sans-serif;
+        /* Roboto font for header */
+      }
 
-        .header h2 {
-            font-size: 1rem;
-            color: #777;
-        }
+      /* Header Bottom Border Line within Padding */
+      .header::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #f6f6f6;
+        /* Light gray color */
+      }
 
-        /* Centered Navigation Links */
-        .header-center {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-        }
+      .header-left {
+        text-align: left;
+      }
 
-        .header-center a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            font-size: 1.1rem;
-            position: relative;
-        }
+      .header h1,
+      .header h2 {
+        font-weight: 400;
+      }
 
-        /* Overline on "Show" instead of "Tell" */
-        .header-center a:first-child.active::before {
-            content: '';
-            position: absolute;
-            top: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: #333;
-        }
+      .header h1 {
+        font-size: 1.5rem;
+        color: #333;
+      }
 
-        .header-center a.active {
-            color: #000;
-        }
+      .header h2 {
+        font-size: 1rem;
+        color: #777;
+      }
 
-        /* Header Right Links */
-        .header-right {
-            margin-left: auto;
-            display: flex;
-            gap: 20px;
-        }
+      /* Centered Navigation Links */
+      .header-center {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 20px;
+      }
 
-        .header-right a {
-            color: #0073b1;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-        }
+      .header-center a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        font-size: 1.1rem;
+        position: relative;
+      }
 
-        .header-right a:hover {
-            color: #005582;
-        }
+      /* Overline on "Tell" */
+      .header-center a:nth-child(2).active::before {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #333;
+      }
 
-        /* Icon Styling */
-        .external-link-icon {
-            width: 12px;
-            height: 12px;
-            margin-left: 5px;
-            fill: currentColor;
-        }
+      /* Header Right Links */
+      .header-right {
+        margin-left: auto;
+        display: flex;
+        gap: 20px;
+      }
 
-        /* Masonry-like Grid for All Projects */
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            padding: 40px 0;
-        }
+      .header-right a {
+        color: #0073b1;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+        display: flex;
+        align-items: center;
+      }
 
-        .image-item {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-            overflow: hidden;
-            text-decoration: none; /* No underline for links */
-            color: inherit; /* Inherit color */
-        }
+      .header-right a:hover {
+        color: #005582;
+      }
 
-        .image-item a {
-            text-decoration: none; /* Remove underline for links within image-item */
-            color: inherit; /* Inherit color */
-        }
+      /* Link Hover Effect */
+      a:hover {
+        background-color: #f6f6f6;
+        transition: background-color 0.3s;
+      }
 
-        .image-shape {
-            width: 100%;
-            height: auto;
-            overflow: hidden;
-            border-radius: 15px;
-            transition: filter 0.3s ease; /* Smooth transition for hover effect */
-        }
+      /* Masonry-like Grid for All Projects */
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 40px 0;
+      }
 
-        /* Darken on Hover */
-        .image-shape:hover {
-            filter: brightness(0.85); /* Slightly darkens the image */
-        }
+      .image-item {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        overflow: hidden;
+        text-decoration: none;
+        /* No underline for links */
+        color: inherit;
+        /* Inherit color */
+      }
 
-        .image-shape img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            border-radius: 15px;
-        }
+      .image-item a {
+        text-decoration: none;
+        /* Remove underline for links within image-item */
+        color: inherit;
+        /* Inherit color */
+      }
 
-        /* Title and Type Styling */
-        .image-title {
-            font-weight: bold;
-            color: #333;
-            padding: 10px 0 5px;
-        }
+      .image-shape {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        border-radius: 15px;
+        transition: filter 0.3s ease;
+        /* Smooth transition for hover effect */
+      }
 
-        .image-type {
-            font-size: 0.9rem;
-            color: #777;
-            padding-bottom: 10px;
-        }
+      /* Darken on Hover */
+      .image-shape:hover {
+        filter: brightness(0.85);
+        /* Slightly darkens the image */
+      }
 
-        /* Footer */
-        .footer {
-            padding: 20px 60px;
-            font-size: 1rem;
-            color: #666;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            background-color: transparent;
-            position: relative;
-        }
+      .image-shape img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 15px;
+      }
 
-        /* Full-width Footer Line */
-        .footer::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: #f6f6f6;
-        }
+      /* Title and Type Styling */
+      .image-title {
+        font-weight: bold;
+        color: #333;
+        padding: 10px 0 5px;
+      }
 
-        .footer .footer-section {
-            display: flex;
-            flex-direction: column;
-            margin-right: 40px;
-        }
+      .image-type {
+        font-size: 0.9rem;
+        color: #777;
+        padding-bottom: 10px;
+      }
 
-        .footer .footer-section a {
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
+      /* Footer */
+      .footer {
+        padding: 20px 60px;
+        font-size: 1rem;
+        color: #666;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        background-color: transparent;
+        font-family: 'Roboto', sans-serif;
+        /* Roboto font for footer */
+        position: relative;
+      }
 
-        .footer .footer-section a:hover {
-            color: #005582;
-        }
+      /* Full-width Footer Line */
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #f6f6f6;
+        /* Light gray color spanning full width */
+      }
 
-        .footer .footer-section strong {
-            margin-bottom: 10px;
-        }
+      .footer .footer-section {
+        display: flex;
+        flex-direction: column;
+        margin-right: 40px;
+      }
 
-        .footer .contact-message {
-            text-align: left;
-            font-size: 1.2rem;
-            color: #555;
-            margin-right: 40px;
-        }
+      .footer .footer-section a {
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
 
-        .footer .email {
-            text-align: left;
-            font-size: 1rem;
-            color: #333;
-            margin-top: 5px;
-        }
+      .footer .footer-section a:hover {
+        background-color: #f6f6f6;
+      }
 
-        .footer .last-updated {
-            font-size: 1rem;
-            color: #888;
-            margin-right: 40px;
-        }
+      .footer .footer-section strong {
+        margin-bottom: 10px;
+      }
+
+      .footer .contact-message {
+        text-align: left;
+        font-size: 1.2rem;
+        color: #555;
+        margin-right: 40px;
+      }
+
+      .footer .email {
+        text-align: left;
+        font-size: 1rem;
+        color: #333;
+        margin-top: 5px;
+      }
+
+      .footer .last-updated {
+        font-size: 1rem;
+        color: #888;
+        margin-right: 40px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Header with Centered Navigation -->
     <header class="header">
-        <div class="header-left">
-            <h1>Giancarlo A. Haidar</h1>
-            <h2>GBDA Student</h2>
-        </div>
-        <div class="header-center">
-            <a href="#SHOW" target="_self" class="active">Show</a>
-            <a href="#TELL" target="_self">Tell</a>
-        </div>
-        <div class="header-right">
-            <a href="https://www.linkedin.com/in/giancarlo-haidar/" target="_blank">LinkedIn ↗</a>
-            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank">Resume ↗</a>
-        </div>
+      <div class="header-left">
+        <h1>Giancarlo A. Haidar</h1>
+        <h2>GBDA Student</h2>
+      </div>
+      <div class="header-center">
+        <a href="#SHOW" target="_self">Show</a>
+        <a href="#TELL" target="_self" class="active">Tell</a>
+      </div>
+      <div class="header-right">
+        <a href="https://www.linkedin.com/in/giancarlo-haidar/" target="_blank">LinkedIn ↗</a>
+        <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank">Resume ↗</a>
+      </div>
     </header>
 
     <!-- Masonry-like Grid for All Projects with Images Filling Cells -->
     <div class="container">
-        <div class="image-grid">
-            <!-- Project Images with Links -->
-            <a href="#LOWFIDELITYPROTOTYPE" target="_self" class="image-item">
-                <div class="image-shape">
-                    <img src="Group 2 GBDA 210 F24_000.jpg" alt="Low Fidelity Prototype">
-                </div>
-                <div class="image-title">Low Fidelity Prototype</div>
-                <div class="image-type">UX Design</div>
-            </a>
-            <a href="#CAMPUSPIZZAREDESIGN" target="_self" class="image-item">
-                <div class="image-shape">
-                    <img src="High-Fidelity Main_Landing Page 1 (Home) (1).jpg" alt="Campus Pizza Redesign">
-                </div>
-                <div class="image-title">Campus Pizza Redesign</div>
-                <div class="image-type">Web Design</div>
-            </a>
-            <a href="#SUNLIFEDESIGNJAM" target="_self" class="image-item">
-                <div class="image-shape">
-                    <img src="Group 9 - Presentation [Design Jam] (1).jpg" alt="Sun Life Design Jam">
-                </div>
-                <div class="image-title">Sun Life Design Jam</div>
-                <div class="image-type">UI Design</div>
-            </a>
-            <!-- Additional Projects -->
-            <a href="#LOGODESIGN" target="_self" class="image-item">
-                <div class="image-shape">
-                    <img src="Artboard 1.png" alt="Logo Design">
-                </div>
-                <div class="image-title">Logo Design</div>
-                <div class="image-type">Illustration</div>
-            </a>
-            <a href="#PERSONALMAGAZINE" target="_self" class="image-item">
-                <div class="image-shape">
-                    <img src="Page 1.png" alt="Magazine Cover">
-                </div>
-                <div class="image-title">Personal Magazine</div>
-                <div class="image-type">Graphic Design</div>
-            </a>
-            <a href="#DIPTYCHPOSTER" target="_self" class="image-item">
-                <div class="image-shape">
-                    <img src="Haidar_Giancarlo_A2-Illustrator.png" alt="Diptych Poster">
-                </div>
-                <div class="image-title">Diptych Poster</div>
-                <div class="image-type">Illustration</div>
-            </a>
-        </div>
+      <div class="image-grid">
+        <!-- Project Images with Links -->
+        <a href="#LOWFIDELITYPROTOTYPE" target="_self" class="image-item">
+          <div class="image-shape">
+            <img src="Group 2 GBDA 210 F24_000.jpg" alt="Low Fidelity Prototype">
+          </div>
+          <div class="image-title">Low Fidelity Prototype</div>
+          <div class="image-type">UX Design</div>
+        </a>
+        <a href="#CAMPUSPIZZAREDESIGN" target="_self" class="image-item">
+          <div class="image-shape">
+            <img src="High-Fidelity Main_Landing Page 1 (Home) (1).jpg" alt="Campus Pizza Redesign">
+          </div>
+          <div class="image-title">Campus Pizza Redesign</div>
+          <div class="image-type">Web Design</div>
+        </a>
+        <a href="#SUNLIFEDESIGNJAM" target="_self" class="image-item">
+          <div class="image-shape">
+            <img src="Group 9 - Presentation [Design Jam] (1).jpg" alt="Sun Life Design Jam">
+          </div>
+          <div class="image-title">Sun Life Design Jam</div>
+          <div class="image-type">UI Design</div>
+        </a>
+        <!-- Additional Projects -->
+        <a href="#LOGODESIGN" target="_self" class="image-item">
+          <div class="image-shape">
+            <img src="Artboard 1.png" alt="Logo Design">
+          </div>
+          <div class="image-title">Logo Design</div>
+          <div class="image-type">Illustration</div>
+        </a>
+        <a href="#PERSONALMAGAZINE" target="_self" class="image-item">
+          <div class="image-shape">
+            <img src="Page 1.png" alt="Magazine Cover">
+          </div>
+          <div class="image-title">Personal Magazine</div>
+          <div class="image-type">Graphic Design</div>
+        </a>
+        <a href="#DIPTYCHPOSTER" target="_self" class="image-item">
+          <div class="image-shape">
+            <img src="Haidar_Giancarlo_A2-Illustrator.png" alt="Diptych Poster">
+          </div>
+          <div class="image-title">Diptych Poster</div>
+          <div class="image-type">Illustration</div>
+        </a>
+      </div>
     </div>
 
     <!-- Footer with Link Sections and Last Updated -->
     <footer class="footer">
-        <div class="footer-section">
-            <strong>Main</strong>
-            <a href="#work">Show</a>
-            <a href="#about">Tell</a>
-        </div>
-        <div class="footer-section">
-            <strong>Contact</strong>
-            <a href="https://www.linkedin.com/in/giancarlo-haidar/" target="_blank">LinkedIn ↗</a>
-            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank">Resume ↗</a>
-        </div>
-        <div class="contact-message">
-            Let's have a coffee chat! <br>
-            <a href="mailto:giancarlo.a.haidar@gmail.com" class="email">giancarlo.a.haidar@gmail.com</a>
-        </div>
-        <div class="last-updated">
-            LAST UPDATED 2024-11-10
-        </div>
+      <div class="footer-section">
+        <strong>Main</strong>
+        <a href="#work">Show</a>
+        <a href="#about">Tell</a>
+      </div>
+      <div class="footer-section">
+        <strong>Contact</strong>
+        <a href="https://www.linkedin.com/in/giancarlo-haidar/" target="_blank">LinkedIn ↗</a>
+        <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank">Resume ↗</a>
+      </div>
+      <div class="contact-message">
+        Let's have a coffee chat! <br>
+        <a href="mailto:giancarlo.a.haidar@gmail.com" class="email">giancarlo.a.haidar@gmail.com</a>
+      </div>
+      <div class="last-updated">
+        Last updated November 2024
+      </div>
     </footer>
-</body>
+  </body>
 </html>
