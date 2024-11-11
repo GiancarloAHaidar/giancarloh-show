@@ -24,7 +24,9 @@
         /* Full-width Container */
         .container {
             width: 100%;
-            padding: 0 40px;
+            padding: 0 60px;
+            max-width: 1600px;
+            margin: auto;
         }
 
         /* Header */
@@ -35,18 +37,28 @@
             position: sticky;
             top: 0;
             background-color: #fff;
-            padding: 15px 20px;
+            padding: 15px 60px;
             z-index: 1000;
-            border-bottom: 2px solid #f6f6f6; /* subtle bottom border */
         }
         
+        /* Header Bottom Border Line within Padding */
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 60px; /* Start of padding */
+            right: 60px; /* End of padding */
+            height: 2px;
+            background-color: #f6f6f6; /* Light gray color */
+        }
+
         .header-left {
-            display: flex;
-            flex-direction: column;
+            text-align: left;
         }
 
         .header h1, .header h2 {
             font-weight: 400;
+            margin: 0;
         }
         
         .header h1 {
@@ -76,12 +88,8 @@
             position: relative;
         }
 
-        /* Active Link Style with Above Underline */
-        .header-center a.active {
-            color: #000;
-        }
-
-        .header-center a.active::before {
+        /* Overline on "Show" instead of "Tell" */
+        .header-center a:first-child.active::before {
             content: '';
             position: absolute;
             top: -4px;
@@ -89,6 +97,10 @@
             width: 100%;
             height: 2px;
             background-color: #333;
+        }
+
+        .header-center a.active {
+            color: #000;
         }
 
         /* Header Right Links */
@@ -119,152 +131,214 @@
             fill: currentColor;
         }
 
-        /* Table of Contents */
-        .toc {
-            position: fixed;
-            top: 100px;
-            left: 20px;
-            width: 150px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 1100;
-        }
-
-        .toc a {
-            font-size: 1rem;
-            color: #333;
-            text-decoration: none;
-            padding: 5px 10px;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        /* Active Year Style */
-        .toc a.active {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #000;
-        }
-
-        /* Unified Image Grid for All Projects with Masonry Effect */
+        /* Masonry-like Grid for All Projects */
         .image-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 1fr;
-            gap: 15px;
-            padding-left: 170px;
-            padding-right: 170px;
+            gap: 20px;
+            padding: 40px 0;
         }
 
         .image-item {
             display: flex;
             flex-direction: column;
             text-align: left;
+            overflow: hidden;
+            text-decoration: none; /* No underline for links */
+            color: inherit; /* Inherit color */
+        }
+
+        .image-item a {
+            text-decoration: none; /* Remove underline for links within image-item */
+            color: inherit; /* Inherit color */
         }
 
         .image-shape {
-            position: relative;
             width: 100%;
+            height: auto;
             overflow: hidden;
-            border-radius: 8px;
-            background-color: #f6f6f6;
+            border-radius: 15px;
+            transition: filter 0.3s ease; /* Smooth transition for hover effect */
         }
 
-        /* Image container sizes */
-        .square {
-            padding-top: 100%;
+        /* Darken on Hover */
+        .image-shape:hover {
+            filter: brightness(0.85); /* Slightly darkens the image */
         }
 
-        .rectangle {
-            padding-top: 60%;
-        }
-
-        .portrait {
-            padding-top: 150%;
-        }
-
-        /* Fit images within shapes */
         .image-shape img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            max-width: 100%;
-            max-height: 100%;
-            transform: translate(-50%, -50%);
+            width: 100%;
+            height: auto;
             object-fit: cover;
+            border-radius: 15px;
         }
 
         /* Title and Type Styling */
         .image-title {
             font-weight: bold;
             color: #333;
-            padding-top: 5px;
+            padding: 10px 0 5px;
         }
 
         .image-type {
             font-size: 0.9rem;
             color: #777;
+            padding-bottom: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px 60px;
+            font-size: 1rem;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            background-color: transparent;
+            position: relative;
+        }
+
+        /* Full-width Footer Line */
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #f6f6f6;
+        }
+
+        .footer .footer-section {
+            display: flex;
+            flex-direction: column;
+            margin-right: 40px;
+        }
+
+        .footer .footer-section a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .footer .footer-section a:hover {
+            color: #005582;
+        }
+
+        .footer .footer-section strong {
+            margin-bottom: 10px;
+        }
+
+        .footer .contact-message {
+            text-align: left;
+            font-size: 1.2rem;
+            color: #555;
+            margin-right: 40px;
+        }
+
+        .footer .email {
+            text-align: left;
+            font-size: 1rem;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .footer .last-updated {
+            font-size: 1rem;
+            color: #888;
+            margin-right: 40px;
         }
     </style>
 </head>
 <body>
     <!-- Header with Centered Navigation -->
     <header class="header">
-        <!-- Left Side (Name and Job Title) -->
         <div class="header-left">
             <h1>Giancarlo A. Haidar</h1>
             <h2>GBDA Student</h2>
         </div>
-
-        <!-- Centered Navigation Links -->
         <div class="header-center">
-            <a href="#work" class="active">Show</a>
-            <a href="#about">Tell</a>
+            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank" class="active">Show</a>
+            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank">Tell</a>
         </div>
-
-        <!-- Right Side (Resume and LinkedIn) -->
         <div class="header-right">
-            <a href="https://www.linkedin.com/in/giancarlo-haidar/" target="_blank">LinkedIn
-                <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59L10 12.59l1.41 1.41L19 6.41V10h2V3h-7z"/><path d="M5 5h9v-2H3c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2v-9h-2v9H5V5z"/></svg>
-            </a>
-            <a href="#resume" target="_blank">Resume
-                <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59L10 12.59l1.41 1.41L19 6.41V10h2V3h-7z"/><path d="M5 5h9v-2H3c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2v-9h-2v9H5V5z"/></svg>
-            </a>
+            <a href="https://www.linkedin.com/in/giancarlo-haidar/" target="_blank">LinkedIn ↗</a>
+            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank">Resume ↗</a>
         </div>
     </header>
 
-    <!-- Table of Contents -->
-    <div class="toc">
-        <a href="#2024" id="toc-2024" class="active">2024</a>
-        <a href="#2023" id="toc-2023">2023</a>
-    </div>
-
-    <!-- Unified Grid for All Projects with Masonry Effect -->
+    <!-- Masonry-like Grid for All Projects with Images Filling Cells -->
     <div class="container">
         <div class="image-grid">
-            <div class="image-item">
-                <div class="image-shape square">
+            <!-- Project Images with Links -->
+            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank" class="image-item">
+                <div class="image-shape">
+                    <img src="Group 2 GBDA 210 F24_000.jpg" alt="Low Fidelity Prototype">
+                </div>
+                <div class="image-title">Low Fidelity Prototype</div>
+                <div class="image-type">UX Design</div>
+            </a>
+            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank" class="image-item">
+                <div class="image-shape">
+                    <img src="High-Fidelity Main_Landing Page 1 (Home) (1).jpg" alt="Campus Pizza Redesign">
+                </div>
+                <div class="image-title">Campus Pizza Redesign</div>
+                <div class="image-type">Web Design</div>
+            </a>
+            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank" class="image-item">
+                <div class="image-shape">
+                    <img src="Group 9 - Presentation [Design Jam] (1).jpg" alt="Sun Life Design Jam">
+                </div>
+                <div class="image-title">Sun Life Design Jam</div>
+                <div class="image-type">UI Design</div>
+            </a>
+            <!-- Additional Projects -->
+            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank" class="image-item">
+                <div class="image-shape">
                     <img src="Artboard 1.png" alt="Logo Design">
                 </div>
-                <div class="image-title">Logo</div>
-                <div class="image-type">Design</div>
-            </div>
-            <div class="image-item">
-                <div class="image-shape portrait">
+                <div class="image-title">Logo Design</div>
+                <div class="image-type">Illustration</div>
+            </a>
+            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank" class="image-item">
+                <div class="image-shape">
                     <img src="Page 1.png" alt="Magazine Cover">
                 </div>
-                <div class="image-title">Magazine</div>
-                <div class="image-type">Cover</div>
-            </div>
-            <div class="image-item">
-                <div class="image-shape rectangle">
+                <div class="image-title">Magazine Cover</div>
+                <div class="image-type">Graphic Design</div>
+            </a>
+            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank" class="image-item">
+                <div class="image-shape">
                     <img src="Haidar_Giancarlo_A2-Illustrator.png" alt="Diptych Poster">
                 </div>
                 <div class="image-title">Diptych Poster</div>
                 <div class="image-type">Illustration</div>
-            </div>
+            </a>
         </div>
     </div>
+
+    <!-- Footer with Link Sections and Last Updated -->
+    <footer class="footer">
+        <div class="footer-section">
+            <strong>Main</strong>
+            <a href="#work">Show</a>
+            <a href="#about">Tell</a>
+        </div>
+        <div class="footer-section">
+            <strong>Contact</strong>
+            <a href="https://www.linkedin.com/in/giancarlo-haidar/" target="_blank">LinkedIn ↗</a>
+            <a href="https://drive.google.com/file/d/1MbBoBFX_vRjV7aRjpS_mjMmPi963o-9F/view?usp=sharing" target="_blank">Resume ↗</a>
+        </div>
+        <div class="contact-message">
+            Let's have a coffee chat! <br>
+            <a href="mailto:giancarlo.a.haidar@gmail.com" class="email">giancarlo.a.haidar@gmail.com</a>
+        </div>
+        <div class="last-updated">
+            Last updated November 2024
+        </div>
+    </footer>
 </body>
 </html>
