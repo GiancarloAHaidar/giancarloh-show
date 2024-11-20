@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="EN-CA">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giancarlo A. Haidar's Portfolio</title>
-    <!-- Link to Google Fonts for Roboto -->
+    <title>Giancarlo.A.Haidar-Show</title>
+    <!-- Link to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Link to Google Fonts for Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Link to Google Fonts for Archivo -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <style>
-      /* Basic Reset */
+      /* CSS Universal (*) Selector: https://www.w3schools.com/cssref/sel_all.php */
       * {
         margin: 0;
         padding: 0;
@@ -27,15 +26,12 @@
         font-family: 'Archivo', sans-serif;
       }
 
-      /* Full-width Container */
       .container {
         width: 100%;
         padding: 0 60px;
-        max-width: 1600px;
         margin: auto;
       }
 
-      /* Header */
       .header {
         display: flex;
         justify-content: space-between;
@@ -48,15 +44,12 @@
         font-family: 'Roboto', sans-serif;
       }
 
-      /* Header Bottom Border Line within Padding */
       .header::after {
         content: "";
         position: absolute;
         bottom: 0;
         left: 60px;
-        /* Align with padding */
         right: 60px;
-        /* Align with padding */
         height: 2px;
         background-color: #f6f6f6;
       }
@@ -80,10 +73,10 @@
         color: #777;
       }
 
-      /* Centered Navigation Links */
       .header-center {
         position: absolute;
         left: 50%;
+        /* CSS transform Property: https://www.w3schools.com/cssref/css3_pr_transform.php */
         transform: translateX(-50%);
         display: flex;
         gap: 60px;
@@ -97,7 +90,6 @@
         position: relative;
       }
 
-      /* Overline on "Show" instead of "Tell" */
       .header-center a:first-child.active::before {
         content: '';
         position: absolute;
@@ -112,7 +104,6 @@
         color: #000;
       }
 
-      /* Header Right Links */
       .header-right {
         margin-left: auto;
         display: flex;
@@ -123,6 +114,7 @@
         color: #0073b1;
         text-decoration: none;
         font-weight: bold;
+        /* CSS Transitions: https://www.w3schools.com/css/css3_transitions.asp */
         transition: color 0.3s;
         display: flex;
         align-items: center;
@@ -131,16 +123,16 @@
       .header-right a:hover {
         color: #005582;
       }
-
-      /* Link Hover Effect */
+      
       a:hover {
         background-color: #f6f6f6;
+        /* CSS Transitions: https://www.w3schools.com/css/css3_transitions.asp */
         transition: background-color 0.3s;
       }
 
-      /* Masonry-like Grid for All Projects */
       .image-grid {
         display: grid;
+        /* CSS grid-template-columns Property: https://www.w3schools.com/cssref/pr_grid-template-columns.php */
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
         padding: 40px 0;
@@ -164,11 +156,12 @@
         width: 100%;
         height: auto;
         overflow: hidden;
+        /* CSS Transitions: https://www.w3schools.com/css/css3_transitions.asp */
         transition: filter 0.3s ease;
       }
 
-      /* Darken on Hover */
       .image-shape:hover {
+        /* CSS filter Property: https://www.w3schools.com/cssref/css3_pr_filter.php */
         filter: brightness(0.85);
       }
 
@@ -178,7 +171,6 @@
         object-fit: cover;
       }
 
-      /* Title and Type Styling */
       .image-title {
         font-weight: bold;
         color: #333;
@@ -191,7 +183,6 @@
         padding-bottom: 10px;
       }
 
-      /* Footer */
       .footer {
         padding: 20px 60px;
         font-size: 1rem;
@@ -205,7 +196,6 @@
         position: relative;
       }
 
-      /* Full-width Footer Line */
       .footer::before {
         content: "";
         position: absolute;
@@ -228,10 +218,6 @@
         font-weight: bold;
         font-size: 1.1rem;
         margin-bottom: 10px;
-      }
-
-      .footer .footer-section a:hover {
-        background-color: #f6f6f6;
       }
 
       .footer .footer-section strong {
@@ -260,7 +246,7 @@
     </style>
   </head>
   <body>
-    <!-- Header with Centered Navigation -->
+    <!-- Header -->
     <header class="header">
       <div class="header-left">
         <h1>Giancarlo A. Haidar</h1>
@@ -276,10 +262,9 @@
       </div>
     </header>
 
-    <!-- Masonry-like Grid for All Projects with Images Filling Cells -->
+    <!-- Body -->
     <div class="container">
       <div class="image-grid">
-        <!-- Project Images with Links -->
         <a href="#LOWFIDELITYPROTOTYPE" target="_self" class="image-item">
           <div class="image-shape">
             <img src="Low Fidelity Prototype.jpg" alt="Low Fidelity Prototype">
@@ -301,17 +286,16 @@
           <div class="image-title">MinTax</div>
           <div class="image-type">Sun Life Design Jam</div>
         </a>
-        <!-- Additional Projects -->
         <a href="#LOGODESIGN" target="_self" class="image-item">
           <div class="image-shape">
-            <img src="Life-Inspired Logo Design.svg" alt="Logo Design">
+            <img src="Life-Inspired Logo Design.svg" alt="Life-Inspired Logo Design">
           </div>
           <div class="image-title">The Compass of Life</div>
           <div class="image-type">Logo Design</div>
         </a>
         <a href="#PERSONALMAGAZINE" target="_self" class="image-item">
           <div class="image-shape">
-            <img src="Personal Magazine Front & Back Cover.jpg" alt="Magazine Cover">
+            <img src="Personal Magazine Front & Back Cover.jpg" alt="Personal Magazine Front & Back Cover">
           </div>
           <div class="image-title">Personal Magazine</div>
           <div class="image-type">Graphic Design</div>
@@ -326,7 +310,7 @@
       </div>
     </div>
 
-    <!-- Footer with Link Sections and Last Updated -->
+    <!-- Footer -->
     <footer class="footer">
       <div class="footer-section">
         <strong>Main</strong>
