@@ -129,10 +129,18 @@
         /* Smooth transition */
       }
 
+      .image-item:hover .image-shape {
+        border: 3px solid #008F11;
+        /* Green outline */
+        transition: border 0.3s ease;
+        /* Smooth transition */
+      }
+
+      /* Change the text color of .image-title and .image-type when .image-item is hovered */
       .image-item:hover .image-title,
       .image-item:hover .image-type {
         color: #008F11;
-        /* Ensure titles and types turn green */
+        /* Green color for text */
         transition: color 0.3s ease;
         /* Smooth transition */
       }
@@ -183,12 +191,14 @@
 
         color: #ffffff;
         padding: 10px 0 5px;
+        font-weight: lighter;
       }
 
       .image-type {
         font-size: 0.9rem;
         color: #707070ff;
         padding-bottom: 10px;
+        font-weight: lighter;
       }
 
 
@@ -246,6 +256,7 @@
         font-size: 1rem;
         color: #ffffff;
         margin-top: 5px;
+        text-decoration: underline dotted;
       }
 
       .footer .last-updated {
