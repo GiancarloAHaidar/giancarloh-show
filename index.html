@@ -51,7 +51,6 @@
       }
 
 
-
       .header::after {
         content: "";
         position: absolute;
@@ -296,45 +295,20 @@
 
       @media (max-width: 767px) {
         .header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
           padding-right: 0px;
-          /* Ensures header has padding */
-          position: relative;
-        }
 
-        .header-left {
-          flex: 1;
-          /* Pushes other elements to the right */
         }
 
         .header-center {
           position: static;
-          /* Removes absolute positioning */
-          order: 2;
-          /* Ensures "Show" and "Tell" stay as the second element */
-          display: flex;
-          justify-content: flex-end;
-          /* Aligns "Show" and "Tell" to the far right */
-          flex: 0;
-          /* Prevents it from stretching */
-          margin-left: auto;
-          /* Pushes "Show" and "Tell" to the far right */
-          padding-right: 0;
-          /* Removes any extra spacing */
-          gap: 60px;
-          /* Maintains the original gap between "Show" and "Tell" */
         }
 
         .header-right {
           display: none;
-          /* Hides LinkedIn and Resume for smaller screens */
         }
 
         .image-grid {
           grid-template-columns: 1fr;
-          /* Stacks project images vertically */
           gap: 10px;
         }
       }
