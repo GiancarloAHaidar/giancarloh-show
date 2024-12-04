@@ -17,6 +17,7 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        background-color: #0D0208;
       }
 
       body {
@@ -38,7 +39,6 @@
         align-items: center;
         position: sticky;
         top: 0;
-        background-color: #ffffff;
         padding: 15px 60px;
         z-index: 1000;
         font-family: 'Roboto', sans-serif;
@@ -65,7 +65,7 @@
 
       .header h1 {
         font-size: 1.5rem;
-        color: #333;
+        color: #ffffff;
       }
 
       .header h2 {
@@ -120,18 +120,23 @@
         align-items: center;
       }
 
-      .header-right a:hover {
-        color: #005582;
-      }
 
-      .header-center a:hover {
-        background-color: #f6f6f6;
-      }
+
+
 
       a:hover {
-        background-color: #f6f6f6;
-        /* CSS Transitions: https://www.w3schools.com/css/css3_transitions.asp */
-        transition: background-color 0.3s ease;
+        color: #008F11 !important;
+        /* Force green color for all links on hover */
+        transition: color 0.3s ease;
+        /* Smooth transition */
+      }
+
+      .image-item:hover .image-title,
+      .image-item:hover .image-type {
+        color: #008F11;
+        /* Ensure titles and types turn green */
+        transition: color 0.3s ease;
+        /* Smooth transition */
       }
 
       .image-grid {
@@ -160,13 +165,14 @@
         width: 100%;
         height: auto;
         overflow: hidden;
-        /* CSS Transitions: https://www.w3schools.com/css/css3_transitions.asp */
-        transition: filter 0.3s ease;
+        /* Add border and transition for smooth effect */
+        border: 3px solid transparent;
+        transition: border 0.3s ease;
       }
 
       .image-shape:hover {
-        /* CSS filter Property: https://www.w3schools.com/cssref/css3_pr_filter.php */
-        filter: brightness(0.85);
+        /* Add green border on hover */
+        border: 3px solid #008F11;
       }
 
       .image-shape img {
@@ -186,6 +192,8 @@
         color: #777;
         padding-bottom: 10px;
       }
+
+
 
       .footer {
         padding: 20px 60px;
@@ -274,42 +282,42 @@
           <div class="image-shape">
             <img src="Low Fidelity Prototype.jpg" alt="Low Fidelity Prototype">
           </div>
-          <div class="image-title">InstaCore Mode</div>
+          <div class="image-title">INSTACORE MODE</div>
           <div class="image-type">UX Design</div>
         </a>
         <a href="#CAMPUSPIZZAREDESIGN" target="_self" class="image-item">
           <div class="image-shape">
             <img src="Campus Pizza Redesign.jpg" alt="Campus Pizza Redesign">
           </div>
-          <div class="image-title">Campus Pizza Redesign</div>
+          <div class="image-title">CAMPUS PIZZA REDESIGN</div>
           <div class="image-type">Web Design</div>
         </a>
         <a href="#SUNLIFEDESIGNJAM" target="_self" class="image-item">
           <div class="image-shape">
             <img src="Sun Life Design Jam.svg" alt="Sun Life Design Jam">
           </div>
-          <div class="image-title">MinTax</div>
+          <div class="image-title">MINTAX</div>
           <div class="image-type">Sun Life Design Jam</div>
         </a>
         <a href="#LOGODESIGN" target="_self" class="image-item">
           <div class="image-shape">
             <img src="Life-Inspired Logo Design.svg" alt="Life-Inspired Logo Design">
           </div>
-          <div class="image-title">The Compass of Life</div>
+          <div class="image-title">COMPASS OF LIFE</div>
           <div class="image-type">Logo Design</div>
         </a>
         <a href="#PERSONALMAGAZINE" target="_self" class="image-item">
           <div class="image-shape">
             <img src="Personal Magazine Front & Back Cover.jpg" alt="Personal Magazine Front & Back Cover">
           </div>
-          <div class="image-title">Personal Magazine</div>
+          <div class="image-title">PERSONAL MAGAZINE</div>
           <div class="image-type">Graphic Design</div>
         </a>
         <a href="#DIPTYCHPOSTER" target="_self" class="image-item">
           <div class="image-shape">
             <img src="Diptych Poster.jpg" alt="Diptych Poster">
           </div>
-          <div class="image-title">Halloween Diptych</div>
+          <div class="image-title">HALLOWEEN DIPTYCH</div>
           <div class="image-type">Poster Design</div>
         </a>
       </div>
