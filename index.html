@@ -12,7 +12,316 @@
     <!-- Link to Google Fonts for Archivo -->
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Link to Stylesheet -->
-    <link rel="stylesheet" href="styles_show.css">
+    <style>
+      /*
+      Code copied from: https: https//www.w3schools.com/cssref/sel_all.php
+      Author: W3Schools
+      Name: CSS Universal (*) Selector
+      Description: The CSS universal selector (*) selects all elements of any type.
+      Date retrieved: 2024-12-04
+      */
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        background-color: #0D0208;
+      }
+
+      body {
+        line-height: 1.6;
+        color: #ffffff;
+        scroll-behavior: smooth;
+        font-family: 'Archivo', sans-serif;
+      }
+
+      .container {
+        width: 100%;
+        padding: 0px 60px;
+        margin: auto;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0px;
+        padding: 15px 60px;
+        z-index: 1000;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      .header:after {
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        left: 60px;
+        right: 60px;
+        height: 2px;
+        background-color: #292929ff;
+      }
+
+      .header-left {
+        text-align: left;
+      }
+
+      .header h1,
+      .header h2 {
+        font-weight: 400;
+      }
+
+      .header h1 {
+        font-size: 1.3rem;
+        color: #ffffff;
+      }
+
+      h1 a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      .header h2 {
+        font-size: 1rem;
+        color: #707070ff;
+      }
+
+      .header-center {
+        position: absolute;
+        left: 50%;
+        /*
+        Code copied from: https: https//www.w3schools.com/cssref/css3_pr_transform.php
+        Author: W3Schools
+        Name: CSS transform Property
+        Description: The transform property applies a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, skew, etc., elements.
+        Date retrieved: 2024-12-04
+        */
+        transform: translateX(-50%);
+        display: flex;
+        gap: 60px;
+      }
+
+      .header-center a {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 1.1rem;
+        position: relative;
+      }
+
+      .header-center a.active {
+        font-weight: bold;
+        text-decoration: overline 2px;
+      }
+
+      .header-right {
+        margin-left: auto;
+        display: flex;
+        gap: 30px;
+      }
+
+      .header-right a {
+        color: #ffffff;
+        text-decoration: none;
+        /*
+        Code copied from: https: https//www.w3schools.com/css/css3_transitions.asp
+        Author: W3Schools
+        Name: CSS Transitions
+        Description: CSS transitions allows you to change property values smoothly, over a given duration.
+        Date retrieved: 2024-12-04
+        */
+        transition: color 0.3s;
+        display: flex;
+        align-items: center;
+      }
+
+      a:hover {
+        /*
+        Code copied from: https: https://www.w3schools.com/css/css_important.asp
+        Author: W3Schools
+        Name: CSS The !important Rule
+        Description: The !important rule in CSS is used to add more importance to a property/value than normal.
+        Date retrieved: 2024-12-04
+        */
+        color: #008F11 !important;
+        /*
+        Code copied from: https://www.w3schools.com/css/css3_transitions.asp
+        Author: W3Schools
+        Name: CSS Transitions
+        Description: CSS transitions allows you to change property values smoothly, over a given duration.
+        Date retrieved: 2024-12-04
+        */
+        transition: color 0.3s ease;
+      }
+
+      .image-grid {
+        display: grid;
+        /*
+        Code copied from: https://www.w3schools.com/cssref/pr_grid-template-columns.php
+        Author: W3Schools
+        Name: CSS grid-template-columns Property
+        Description: The grid-template-columns property specifies the number (and the widths) of columns in a grid layout.
+        Date retrieved: 2024-12-04
+        */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 40px 0px;
+      }
+
+      .image-item {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .image-shape {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        border: 3px solid transparent;
+        transition: border 0.3s ease;
+      }
+
+      .image-shape img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+        /*
+        Code copied from: https://www.w3schools.com/css/css3_transitions.asp
+        Author: W3Schools
+        Name: CSS Transitions
+        Description: CSS transitions allows you to change property values smoothly, over a given duration.
+        Date retrieved: 2024-12-04
+        */
+        transition: border-radius 0.3s ease;
+      }
+
+      .image-item:hover .image-shape {
+        border: 3px solid #008F11;
+        /* Outline color when hovering on title or type */
+      }
+
+      .image-item:hover .image-shape img {
+        border-radius: 0;
+        /* Square edges */
+      }
+
+      .image-title {
+        color: #ffffff;
+        padding: 10px 0px 5px;
+        font-weight: lighter;
+      }
+
+      .image-type {
+        font-size: 0.9rem;
+        color: #707070ff;
+        padding-bottom: 10px;
+        font-weight: lighter;
+      }
+
+      .image-item:hover .image-title,
+      .image-item:hover .image-type {
+        font-weight: normal;
+        color: #008F11;
+        /*
+        Code copied from: https://www.w3schools.com/css/css3_transitions.asp
+        Author: W3Schools
+        Name: CSS Transitions
+        Description: CSS transitions allows you to change property values smoothly, over a given duration.
+        Date retrieved: 2024-12-04
+        */
+        transition: font-weight 0.3s ease, color 0.3s ease;
+      }
+
+      .footer {
+        padding: 20px 60px;
+        font-size: 1rem;
+        color: #707070ff;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        background-color: transparent;
+        position: relative;
+        margin-top: auto;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      .footer:before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        height: 2px;
+        background-color: #292929ff;
+      }
+
+      .footer-section {
+        display: flex;
+        flex-direction: column;
+        margin-right: 40px;
+      }
+
+      .footer-section a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
+
+      /*
+        Code copied from: https://www.w3schools.com/tags/tag_strong.asp
+        Author: W3Schools
+        Name: HTML <strong> Tag
+        Description: The <strong> tag is used to define text with strong importance. The content inside is typically displayed in bold.
+        Date retrieved: 2024-12-04
+        */
+      .footer-section strong {
+        margin-bottom: 10px;
+      }
+
+      .contact-message {
+        text-align: left;
+        font-size: 1.2rem;
+        color: #707070ff;
+        margin-right: 40px;
+      }
+
+      .email {
+        text-align: left;
+        font-size: 1rem;
+        color: #ffffff;
+        text-decoration: underline dotted;
+      }
+
+      .last-updated {
+        font-size: 1rem;
+        color: #707070ff;
+        margin-right: 40px;
+      }
+
+      @media (max-width: 767px) {
+        .header {
+          padding-right: 0px;
+        }
+
+        .header-center {
+          position: static;
+        }
+
+        .header-right {
+          display: none;
+        }
+
+        .image-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
 
   <body>
