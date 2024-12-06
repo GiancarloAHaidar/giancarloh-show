@@ -163,34 +163,48 @@
       }
 
       .image-shape img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: border-radius 0.3s ease;
-  display: block; /* Ensures no inline spacing issue */
-}
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+        /*
+        Code copied from: https://www.w3schools.com/css/css3_transitions.asp
+        Author: W3Schools
+        Name: CSS Transitions
+        Description: CSS transitions allows you to change property values smoothly, over a given duration.
+        Date retrieved: 2024-12-04
+        */
+        transition: border-radius 0.3s ease;
+        display: block;
+      }
 
-.image-shape {
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-  border: 2px solid transparent;
-  transition: border 0.3s ease;
-  margin: 0; /* Prevent extra space from margins */
-  padding: 0; /* Prevent extra space from padding */
-}
+      .image-shape {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        border: 2px solid transparent;
+        /*
+        Code copied from: https://www.w3schools.com/css/css3_transitions.asp
+        Author: W3Schools
+        Name: CSS Transitions
+        Description: CSS transitions allows you to change property values smoothly, over a given duration.
+        Date retrieved: 2024-12-04
+        */
+        transition: border 0.3s ease;
+        margin: 0;
+        padding: 0;
+      }
 
-.image-item {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  margin: 0; /* Prevent any floating issues */
-  padding: 0; /* Prevent any floating issues */
-}
+      .image-item {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        margin: 0;
+        padding: 0;
+      }
 
       .image-item:hover .image-shape {
         border: 2px solid #008F11;
